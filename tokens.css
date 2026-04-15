@@ -1,0 +1,165 @@
+/*
+ * Tari Design System — tokens.css
+ * Drop this file into any project to get the full Tari token set.
+ *
+ * FONT SETUP — add this to your HTML <head>:
+ *
+ *   <link rel="preconnect" href="https://fonts.googleapis.com">
+ *   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ *   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ *
+ * Or as a CSS @import at the top of this file (before any rules):
+ *   @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500&display=swap');
+ */
+
+/* ─── DRUK (loaded from tari.com CDN) ─────────────────────────────────────── */
+
+@font-face {
+  font-family: 'DrukWideFont';
+  src: url('https://www.tari.com/_next/static/media/e03750ebf8ed0d54-s.p.ttf') format('truetype');
+  font-weight: 500; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'DrukWideFont';
+  src: url('https://www.tari.com/_next/static/media/1f00708acd790523-s.p.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'DrukWideFont';
+  src: url('https://www.tari.com/_next/static/media/d15778d6fa440100-s.p.ttf') format('truetype');
+  font-weight: 800; font-style: italic; font-display: block;
+}
+@font-face {
+  font-family: 'DrukFont';
+  src: url('https://www.tari.com/_next/static/media/3a681849c82206f4-s.p.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'DrukFont';
+  src: url('https://www.tari.com/_next/static/media/6deb450465c0a99f-s.p.ttf') format('truetype');
+  font-weight: 800; font-style: normal; font-display: block;
+}
+
+/* ─── DARK THEME (default) ─────────────────────────────────────────────────── */
+/* Apply to :root for dark-first, or [data-theme="dark"] for toggled theming   */
+
+:root,
+[data-theme="dark"] {
+
+  /* Brand — theme-agnostic */
+  --tari-dark:     #0c0718;
+  --tari-cream:    #fbf7ef;
+  --tari-lime:     #c9eb00;
+  --tari-green:    #71ee73;
+  --tari-orange:   #ffab25;
+  --tari-blue:     #3342ff;
+  --tari-purple:   #5a63d3;
+  --tari-gradient: linear-gradient(90deg, #5a63d3, #3342ff);
+
+  /* Surfaces */
+  --surface-0: #0c0718;   /* page background         */
+  --surface-1: #130f22;   /* cards, panels           */
+  --surface-2: #1e1836;   /* elevated inputs, rows   */
+  --surface-3: #2e2850;   /* hover states, dividers  */
+
+  /* Text */
+  --text-primary:   #fbf7ef;
+  --text-secondary: #9993b0;
+  --text-muted:     #706a90;
+
+  /* Borders */
+  --border-subtle:  rgba(46, 40, 80, 0.5);
+  --border-default: #2e2850;
+
+  /* Semantic status (icon/text use only — never background fills) */
+  --color-success: #71ee73;
+  --color-warning: #ffab25;
+  --color-error:   #ff7070;
+  --color-info:    #8b94ff;
+
+  /* Radius */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-pill: 60px;
+
+  /* Typography */
+  --font-display: 'DrukWideFont', 'DrukFont', 'Druk Wide', 'Druk', Arial, sans-serif;
+  --font-body:    'Poppins', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* Spacing — 8px base unit */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+
+  /* Shadows */
+  --shadow-1: 0 1px 4px rgba(0, 0, 0, 0.3);
+  --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-3: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-4: 0 8px 32px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* ─── LIGHT THEME ──────────────────────────────────────────────────────────── */
+/* Add data-theme="light" to <html> or <body> to switch                        */
+
+[data-theme="light"] {
+
+  /* Surfaces */
+  --surface-0: #fbf7ef;   /* page background — warm cream, never pure white */
+  --surface-1: #ffffff;
+  --surface-2: #f6f4fb;
+  --surface-3: #ece9f5;
+
+  /* Text */
+  --text-primary:   #0c0718;
+  --text-secondary: #4a4468;
+  --text-muted:     #8a84a8;
+
+  /* Borders */
+  --border-subtle:  #e8e4f4;
+  --border-default: #d4cfea;
+
+  /* Semantic status (icon/text use only — never background fills) */
+  --color-success: #1a5c1c;
+  --color-warning: #7a4400;
+  --color-error:   #8c1a1a;
+  --color-info:    #1a28cc;
+
+  /* Shadows */
+  --shadow-1: 0 1px 4px rgba(12, 7, 24, 0.06);
+  --shadow-2: 0 4px 12px rgba(12, 7, 24, 0.08);
+  --shadow-3: 0 8px 24px rgba(12, 7, 24, 0.10);
+  --shadow-4: 0 8px 28px rgba(12, 7, 24, 0.10), 0 2px 6px rgba(12, 7, 24, 0.05);
+
+  /* Brand, radius, typography, spacing tokens are identical across themes */
+}
+
+/* ─── BASE RESET ───────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--surface-0);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.25px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
