@@ -74,6 +74,16 @@
 
     --topbar-h: 52px;
     --sidebar-w: 224px;
+
+    --error: #ff6060;
+    --error-bg: rgba(255,96,96,0.08);
+    --error-border: rgba(255,96,96,0.22);
+    --warning: #f5a623;
+    --warning-bg: rgba(245,166,35,0.08);
+    --warning-border: rgba(245,166,35,0.22);
+    --success: #71ee73;
+    --success-bg: rgba(113,238,115,0.08);
+    --success-border: rgba(113,238,115,0.22);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1708,6 +1718,96 @@
     width: 100%;
   }
 
+  /* ── Error States ─────────────────────────────────── */
+  .es-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .es-card { background:var(--surface-1); border:1px solid var(--border-default); border-radius:var(--radius-lg); padding:24px; }
+  .es-card-title { font-size:12px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:16px; }
+  .es-field { display:flex; flex-direction:column; gap:6px; }
+  .es-label { font-size:12px; color:var(--text-secondary); font-weight:500; }
+  .es-input { background:var(--surface-0); border:1.5px solid var(--error); border-radius:var(--radius-md); padding:10px 12px; font-size:14px; color:var(--text-primary); outline:none; font-family:var(--font-body); width:100%; }
+  .es-hint { font-size:12px; color:var(--error); display:flex; align-items:center; gap:5px; margin-top:2px; }
+  .es-txn { display:flex; flex-direction:column; gap:10px; }
+  .es-txn-row { display:flex; align-items:center; justify-content:space-between; }
+  .es-txn-label { font-size:13px; color:var(--text-secondary); }
+  .es-txn-value { font-size:13px; color:var(--text-primary); font-weight:500; }
+  .es-status { display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:var(--radius-md); font-size:13px; font-weight:600; margin-top:12px; }
+  .es-status.error { background:var(--error-bg); border:1px solid var(--error-border); color:var(--error); }
+  .es-status.warning { background:var(--warning-bg); border:1px solid var(--warning-border); color:var(--warning); }
+  .es-status.success { background:var(--success-bg); border:1px solid var(--success-border); color:var(--success); }
+  .es-balance-label { font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:6px; }
+  .es-balance-val { font-family:var(--font-display); font-size:32px; font-weight:800; color:var(--text-primary); line-height:1; }
+  .es-balance-sub { font-size:12px; color:var(--error); margin-top:6px; display:flex; align-items:center; gap:4px; }
+  .es-icon-row { display:flex; align-items:flex-start; gap:12px; margin-bottom:12px; }
+  .es-icon { width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .es-icon.error { background:var(--error-bg); color:var(--error); }
+  .es-icon.warning { background:var(--warning-bg); color:var(--warning); }
+  .es-icon-text { flex:1; }
+  .es-icon-label { font-size:14px; font-weight:600; color:var(--text-primary); }
+  .es-icon-sub { font-size:12px; color:var(--text-muted); margin-top:2px; line-height:1.4; }
+  .es-divider { height:1px; background:var(--border-default); margin:12px 0; }
+  .es-btn-row { display:flex; gap:8px; margin-top:14px; }
+  .es-btn { padding:8px 16px; border-radius:var(--radius-md); font-size:13px; font-weight:600; cursor:pointer; border:none; font-family:var(--font-body); transition:opacity 0.15s; }
+  .es-btn:hover { opacity:0.82; }
+  .es-btn.primary { background:var(--tari-gradient); color:#fff; }
+  .es-btn.ghost { background:transparent; color:var(--text-secondary); border:1px solid var(--border-default); }
+  .es-progress-bar { height:4px; background:var(--surface-2); border-radius:2px; overflow:hidden; margin:8px 0; }
+  .es-progress-fill { height:100%; background:var(--error); border-radius:2px; width:65%; }
+  .es-retry-timer { font-size:11px; color:var(--text-muted); margin-top:6px; }
+
+  /* ── Copy Layouts ─────────────────────────────────── */
+  .cl-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .cl-card { background:var(--surface-1); border:1px solid var(--border-default); border-radius:var(--radius-lg); padding:28px 24px; }
+  .cl-card-title { font-size:12px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:20px; }
+  .cl-hero-eyebrow { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--tari-lime); margin-bottom:10px; }
+  .cl-hero-headline { font-family:var(--font-display); font-size:30px; font-weight:800; line-height:1.1; color:var(--text-primary); margin-bottom:12px; }
+  .cl-hero-body { font-size:14px; line-height:1.6; color:var(--text-secondary); }
+  .cl-data-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .cl-data-label { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:4px; }
+  .cl-data-value { font-size:24px; font-weight:700; color:var(--text-primary); font-family:var(--font-display); line-height:1; }
+  .cl-data-delta { font-size:11px; color:var(--tari-lime); margin-top:4px; }
+  .cl-quote-wrap { display:flex; gap:14px; }
+  .cl-quote-bar { width:3px; border-radius:2px; background:var(--tari-gradient); flex-shrink:0; }
+  .cl-quote-text { font-size:17px; font-style:italic; line-height:1.55; color:var(--text-primary); font-weight:500; }
+  .cl-quote-attr { font-size:12px; color:var(--text-muted); margin-top:8px; }
+  .cl-type-row { display:flex; flex-direction:column; gap:0; }
+  .cl-type-item { display:flex; align-items:baseline; gap:12px; padding:9px 0; border-bottom:1px solid var(--border-subtle); }
+  .cl-type-item:last-child { border-bottom:none; }
+  .cl-type-name { font-size:10px; color:var(--text-muted); width:72px; flex-shrink:0; font-family:var(--font-mono); }
+  .cl-callout { display:flex; gap:12px; padding:14px 16px; background:rgba(90,99,211,0.1); border:1px solid rgba(90,99,211,0.25); border-radius:var(--radius-md); }
+  .cl-callout-icon { font-size:15px; flex-shrink:0; margin-top:2px; }
+  .cl-callout-body { font-size:13px; line-height:1.6; color:var(--text-secondary); }
+  .cl-callout-body strong { color:var(--text-primary); font-weight:600; }
+  .cl-step-list { display:flex; flex-direction:column; gap:16px; }
+  .cl-step { display:flex; gap:14px; align-items:flex-start; }
+  .cl-step-num { width:26px; height:26px; border-radius:50%; background:var(--tari-gradient); color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+  .cl-step-title { font-size:14px; font-weight:600; color:var(--text-primary); margin-bottom:3px; }
+  .cl-step-desc { font-size:12px; color:var(--text-muted); line-height:1.5; }
+  .cl-empty { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:36px 24px; text-align:center; grid-column:1/-1; }
+  .cl-empty-icon { width:52px; height:52px; border-radius:var(--radius-lg); background:var(--surface-2); display:flex; align-items:center; justify-content:center; margin-bottom:14px; font-size:22px; }
+  .cl-empty-title { font-size:16px; font-weight:600; color:var(--text-primary); margin-bottom:6px; }
+  .cl-empty-desc { font-size:13px; color:var(--text-muted); max-width:280px; line-height:1.5; margin-bottom:18px; }
+
+  /* ── Brand Assets ─────────────────────────────────── */
+  .ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .ba-card { background:var(--surface-1); border:1px solid var(--border-default); border-radius:var(--radius-lg); overflow:hidden; }
+  .ba-card-label { font-size:12px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; padding:18px 20px 10px; }
+  .ba-token-inner { padding:0 20px 20px; display:flex; flex-direction:column; gap:14px; }
+  .ba-token-row { display:flex; align-items:center; gap:14px; }
+  .ba-token-icon { width:52px; height:52px; border-radius:12px; overflow:hidden; flex-shrink:0; }
+  .ba-token-icon img { width:100%; height:100%; object-fit:cover; display:block; }
+  .ba-token-name { font-family:var(--font-display); font-size:22px; font-weight:800; color:var(--text-primary); }
+  .ba-token-ticker { font-size:12px; color:var(--text-muted); margin-top:2px; font-family:var(--font-mono); }
+  .ba-token-desc { font-size:13px; color:var(--text-secondary); line-height:1.6; }
+  .ba-img-wrap { width:100%; overflow:hidden; }
+  .ba-img-wrap img { width:100%; display:block; object-fit:cover; max-height:240px; }
+  .ba-img-caption { font-size:11px; color:var(--text-muted); padding:10px 20px 4px; }
+  .ba-full { grid-column:1/-1; }
+  .ba-dl-row { display:flex; gap:8px; padding:12px 20px 16px; flex-wrap:wrap; }
+  .ba-dl-btn { display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:var(--radius-md); font-size:12px; font-weight:600; font-family:var(--font-body); color:var(--text-secondary); background:transparent; border:1px solid var(--border-default); cursor:pointer; text-decoration:none; transition:color 0.15s ease, border-color 0.15s ease, background 0.15s ease; }
+  .ba-dl-btn:hover { color:var(--text-primary); border-color:var(--text-muted); background:var(--surface-2); }
+  .ba-coins-wrap { padding:20px; background:var(--surface-0); }
+  .ba-coins-wrap img { width:100%; display:block; object-fit:contain; max-height:180px; }
+
   /* Topbar scroll shadow */
   .topbar { transition: box-shadow 0.25s ease; }
   .topbar.scrolled { box-shadow: 0 1px 0 var(--border-subtle), 0 4px 16px rgba(0,0,0,0.25); }
@@ -2097,10 +2197,16 @@
       <a href="#checkboxes" class="sidebar-link">Checkboxes</a>
       <a href="#radios" class="sidebar-link">Radio Buttons</a>
       <a href="#toggles" class="sidebar-link">Toggles</a>
+      <a href="#error-states" class="sidebar-link">Error States</a>
+      <a href="#copy-layouts" class="sidebar-link">Copy Layouts</a>
     </div>
     <div class="sidebar-group">
       <div class="sidebar-group-label">Motion</div>
       <a href="#animated-numbers" class="sidebar-link">Animated Numbers</a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-label">Brand</div>
+      <a href="#brand-assets" class="sidebar-link">Brand Assets</a>
     </div>
     <div class="sidebar-group">
       <div class="sidebar-group-label">Examples</div>
@@ -2647,6 +2753,276 @@ Checkmark on lime: always #0c0718 — never white on lime</div>
         </div>
       </div>
 
+      <!-- ERROR STATES -->
+      <div class="section" id="error-states">
+        <div class="section-label">Error States</div>
+        <div class="section-desc">Semantic error patterns using color only on the indicator — never the whole card. Consistent feedback for field validation, transaction failures, and system errors.</div>
+
+        <div class="es-grid">
+
+          <!-- Field Validation -->
+          <div class="es-card">
+            <div class="es-card-title">Field Validation</div>
+            <div class="form-group">
+              <label class="form-label">Wallet Address</label>
+              <div class="input-wrap">
+                <input class="form-input error" type="text" value="0xGZ_invalid_addr" readonly>
+              </div>
+              <span class="form-error">Invalid address format</span>
+            </div>
+            <div class="form-group" style="margin-top:14px">
+              <label class="form-label">Amount</label>
+              <div class="input-wrap">
+                <input class="form-input error" type="text" value="99,999 XTM" readonly>
+              </div>
+              <span class="form-error">Exceeds available balance</span>
+            </div>
+          </div>
+
+          <!-- Transaction Failed -->
+          <div class="es-card">
+            <div class="es-card-title">Transaction Failed</div>
+            <div class="es-txn-row">
+              <span class="es-txn-label">To</span>
+              <span class="es-txn-value" style="font-family:var(--font-mono);font-size:12px">0xA3f…b42e</span>
+            </div>
+            <div class="es-divider"></div>
+            <div class="es-txn-row">
+              <span class="es-txn-label">Amount</span>
+              <span class="es-txn-value">1,200 XTM</span>
+            </div>
+            <div class="es-txn-row" style="margin-top:4px">
+              <span class="es-txn-label">Fee</span>
+              <span class="es-txn-value" style="color:var(--text-muted);font-size:12px">0.002 XTM</span>
+            </div>
+            <div class="es-status error">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="currentColor"/><path d="M7 4v3.5M7 9.5v.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              Transaction rejected by network
+            </div>
+            <div class="es-btn-row">
+              <button class="es-btn primary">Retry</button>
+              <button class="es-btn ghost">Cancel</button>
+            </div>
+          </div>
+
+          <!-- Insufficient Funds -->
+          <div class="es-card">
+            <div class="es-card-title">Insufficient Funds</div>
+            <div class="es-balance-label">Available Balance</div>
+            <div class="es-balance-val">3,241 <span style="font-size:16px;font-weight:600;opacity:0.6">XTM</span></div>
+            <div class="es-balance-sub">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6l4-4 4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              −5,000 XTM short for this transaction
+            </div>
+            <div class="es-divider"></div>
+            <div class="es-txn-row">
+              <span class="es-txn-label">You're sending</span>
+              <span class="es-txn-value" style="color:var(--error)">8,241 XTM</span>
+            </div>
+            <div class="es-btn-row">
+              <button class="es-btn ghost" style="flex:1">Adjust Amount</button>
+            </div>
+          </div>
+
+          <!-- Sync Error -->
+          <div class="es-card">
+            <div class="es-card-title">Sync Error</div>
+            <div class="es-icon-row">
+              <div class="es-icon warning">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L14.5 13H1.5L8 2Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M8 6v3.5M8 11v.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              </div>
+              <div class="es-icon-text">
+                <div class="es-icon-label">Chain sync interrupted</div>
+                <div class="es-icon-sub">Block #1,847,293 — connection lost</div>
+              </div>
+            </div>
+            <div class="es-balance-label" style="margin-bottom:4px">Sync progress</div>
+            <div class="es-progress-bar"><div class="es-progress-fill" style="width:65%;background:var(--warning)"></div></div>
+            <div class="es-retry-timer">65% synced · Reconnecting in 12s…</div>
+            <div class="es-btn-row">
+              <button class="es-btn primary">Reconnect Now</button>
+            </div>
+          </div>
+
+          <!-- Auth Failed -->
+          <div class="es-card">
+            <div class="es-card-title">Auth Failed</div>
+            <div class="es-icon-row" style="flex-direction:column;align-items:center;text-align:center;gap:10px;padding:8px 0">
+              <div class="es-icon error" style="width:52px;height:52px">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="5" y="10" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 10V7a3 3 0 0 1 6 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="14.5" r="1.2" fill="currentColor"/></svg>
+              </div>
+              <div>
+                <div class="es-icon-label">Passphrase incorrect</div>
+                <div class="es-icon-sub" style="text-align:center">2 attempts remaining before lockout</div>
+              </div>
+            </div>
+            <div class="form-group" style="margin-top:12px">
+              <label class="form-label">Passphrase</label>
+              <div class="input-wrap">
+                <input class="form-input error" type="password" value="wrongpassword" readonly>
+              </div>
+              <span class="form-error">Wrong passphrase</span>
+            </div>
+          </div>
+
+          <!-- Network Timeout -->
+          <div class="es-card">
+            <div class="es-card-title">Network Timeout</div>
+            <div class="es-icon-row">
+              <div class="es-icon error">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2a6 6 0 1 0 0 12A6 6 0 0 0 8 2Z" stroke="currentColor" stroke-width="1.4"/><path d="M8 5v4l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="es-icon-text">
+                <div class="es-icon-label">Request timed out</div>
+                <div class="es-icon-sub">Could not reach the Tari network after 30s</div>
+              </div>
+            </div>
+            <div class="es-status warning" style="margin-top:0">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5L13 12H1L7 1.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M7 5.5v3M7 10v.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              Fallback node active — read-only mode
+            </div>
+            <div class="es-btn-row">
+              <button class="es-btn primary">Switch Node</button>
+              <button class="es-btn ghost">Dismiss</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COPY LAYOUTS -->
+      <div class="section" id="copy-layouts">
+        <div class="section-label">Copy Layouts</div>
+        <div class="section-desc">Reusable typographic patterns for hierarchy, data, and narrative. Use these templates for headlines, stats, callouts, and onboarding flows.</div>
+
+        <div class="cl-grid">
+
+          <!-- Display Hero -->
+          <div class="cl-card">
+            <div class="cl-card-title">Display Hero</div>
+            <div class="cl-hero-eyebrow">Layer 1 · Privacy</div>
+            <div class="cl-hero-headline">Own Your<br>Digital Future</div>
+            <div class="cl-hero-body">Tari is a community-driven open source project building the most accessible privacy layer in crypto — no compromises.</div>
+          </div>
+
+          <!-- Data Pairs -->
+          <div class="cl-card">
+            <div class="cl-card-title">Data Pairs</div>
+            <div class="cl-data-grid">
+              <div>
+                <div class="cl-data-label">Total Supply</div>
+                <div class="cl-data-value">21B</div>
+                <div class="cl-data-delta">↑ Max cap</div>
+              </div>
+              <div>
+                <div class="cl-data-label">Block Time</div>
+                <div class="cl-data-value">~2m</div>
+                <div class="cl-data-delta">↓ 12% avg</div>
+              </div>
+              <div>
+                <div class="cl-data-label">Active Miners</div>
+                <div class="cl-data-value">48K</div>
+                <div class="cl-data-delta">↑ All-time high</div>
+              </div>
+              <div>
+                <div class="cl-data-label">Tx / Day</div>
+                <div class="cl-data-value">2.4M</div>
+                <div class="cl-data-delta">↑ 18% WoW</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pull Quote -->
+          <div class="cl-card">
+            <div class="cl-card-title">Pull Quote</div>
+            <div class="cl-quote-wrap">
+              <div class="cl-quote-bar"></div>
+              <div>
+                <div class="cl-quote-text">"Privacy is not about hiding — it's about having the freedom to choose what you share."</div>
+                <div class="cl-quote-attr">Riccardo Spagni · Co-founder, Tari</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Type Hierarchy -->
+          <div class="cl-card">
+            <div class="cl-card-title">Type Hierarchy</div>
+            <div class="cl-type-row">
+              <div class="cl-type-item">
+                <span class="cl-type-name">display</span>
+                <span class="cl-type-sample" style="font-family:var(--font-display);font-size:26px;font-weight:800;line-height:1">Tari</span>
+              </div>
+              <div class="cl-type-item">
+                <span class="cl-type-name">heading</span>
+                <span class="cl-type-sample" style="font-size:18px;font-weight:700">Send &amp; Receive</span>
+              </div>
+              <div class="cl-type-item">
+                <span class="cl-type-name">label</span>
+                <span class="cl-type-sample" style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted)">Transaction</span>
+              </div>
+              <div class="cl-type-item">
+                <span class="cl-type-name">body</span>
+                <span class="cl-type-sample" style="font-size:14px;color:var(--text-secondary)">Confirmed in block 1,847,291</span>
+              </div>
+              <div class="cl-type-item">
+                <span class="cl-type-name">mono</span>
+                <span class="cl-type-sample" style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted)">0xA3f…b42e</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inline Callout -->
+          <div class="cl-card">
+            <div class="cl-card-title">Inline Callout</div>
+            <div class="cl-callout">
+              <div class="cl-callout-icon">💡</div>
+              <div class="cl-callout-body"><strong>One-sided payments</strong> let you send XTM without the recipient being online — funds wait in a stealth UTXO until claimed.</div>
+            </div>
+            <div class="cl-callout" style="margin-top:10px;background:var(--warning-bg);border-color:var(--warning-border)">
+              <div class="cl-callout-icon">⚠️</div>
+              <div class="cl-callout-body" style="color:var(--text-secondary)"><strong style="color:var(--warning)">Irreversible action.</strong> Once a transaction is broadcast it cannot be recalled.</div>
+            </div>
+          </div>
+
+          <!-- Step Copy -->
+          <div class="cl-card">
+            <div class="cl-card-title">Step Copy</div>
+            <div class="cl-step-list">
+              <div class="cl-step">
+                <div class="cl-step-num">1</div>
+                <div>
+                  <div class="cl-step-title">Generate address</div>
+                  <div class="cl-step-desc">Create a one-time stealth address — each transaction uses a fresh key.</div>
+                </div>
+              </div>
+              <div class="cl-step">
+                <div class="cl-step-num">2</div>
+                <div>
+                  <div class="cl-step-title">Sign &amp; broadcast</div>
+                  <div class="cl-step-desc">Sign locally with your passphrase, then push to the Tari p2p network.</div>
+                </div>
+              </div>
+              <div class="cl-step">
+                <div class="cl-step-num">3</div>
+                <div>
+                  <div class="cl-step-title">Await confirmation</div>
+                  <div class="cl-step-desc">Transactions confirm in ~2 minutes across the merged-mining network.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Empty State -->
+          <div class="cl-card cl-empty">
+            <div class="cl-empty-icon">📭</div>
+            <div class="cl-empty-title">No transactions yet</div>
+            <div class="cl-empty-desc">Your transaction history will appear here once you send or receive XTM.</div>
+            <button class="es-btn primary" style="padding:10px 24px;font-size:14px">Receive XTM</button>
+          </div>
+
+        </div>
+      </div>
+
       <!-- ANIMATED NUMBERS -->
       <div class="section" id="animated-numbers">
         <div class="section-label">Animated Numbers</div>
@@ -2751,6 +3127,73 @@ Checkmark on lime: always #0c0718 — never white on lime</div>
                   <svg width="10" height="9" viewBox="0 0 10 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4.5h7M5 1.5l3 3-3 3"/></svg>
                 </button>
               </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BRAND ASSETS -->
+      <div class="section" id="brand-assets">
+        <div class="section-label">Brand Assets</div>
+        <div class="section-desc">Official Tari visual assets — the XTM token mark, architectural tower, and coin renders. Use these at their original aspect ratios; never stretch or recolor.</div>
+
+        <div class="ba-grid">
+
+          <!-- XTM Token -->
+          <div class="ba-card">
+            <div class="ba-card-label">XTM Token Mark</div>
+            <div class="ba-token-inner">
+              <div class="ba-token-row">
+                <div class="ba-token-icon">
+                  <img src="media/$XTM.svg" alt="XTM token logo">
+                </div>
+                <div>
+                  <div class="ba-token-name">XTM</div>
+                  <div class="ba-token-ticker">$XTM · Tari Token</div>
+                </div>
+              </div>
+              <div class="ba-token-desc">The native token of the Tari network. Use the gem mark at minimum 32px with the dark purple background. Never recolor the lime gem path.</div>
+            </div>
+            <div class="ba-dl-row">
+              <a class="ba-dl-btn" href="media/$XTM.svg" download="$XTM.svg">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3 6.5l3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 11.5h11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                SVG
+              </a>
+            </div>
+          </div>
+
+          <!-- Coins -->
+          <div class="ba-card">
+            <div class="ba-card-label">Coin Renders</div>
+            <div class="ba-coins-wrap">
+              <img src="media/TariCoins.png" alt="Tari coin renders">
+            </div>
+            <div class="ba-img-caption">3D coin assets — use for promotional and marketing materials.</div>
+            <div class="ba-dl-row">
+              <a class="ba-dl-btn" href="media/TariCoins.png" download="TariCoins.png">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3 6.5l3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 11.5h11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                PNG
+              </a>
+            </div>
+          </div>
+
+          <!-- Tower (full width) -->
+          <div class="ba-card ba-full">
+            <div class="ba-card-label">Tower Visual</div>
+            <div class="ba-img-wrap">
+              <img src="media/Tari-Tower-Dark-Mode.png" alt="Tari Tower — dark mode">
+            </div>
+            <div class="ba-img-caption">Architectural tower visual — dark mode and light mode variants.</div>
+            <div class="ba-dl-row">
+              <a class="ba-dl-btn" href="media/Tari-Tower-Dark-Mode.png" download="Tari-Tower-Dark-Mode.png">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3 6.5l3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 11.5h11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                Dark Mode
+              </a>
+              <a class="ba-dl-btn" href="media/Tari-Tower-Light-Mode.png" download="Tari-Tower-Light-Mode.png">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3 6.5l3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 11.5h11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                Light Mode
+              </a>
             </div>
           </div>
 
